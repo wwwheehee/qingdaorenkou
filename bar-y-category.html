@@ -1,0 +1,123 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category&code=lZTNbtNAFIX3lfoO3iCDFEYzYztjB7FgxYYF-6oLtxlSS6ldOW5phLoplQCpTREbkFBBAvGz7Y8gDUW8TKdqV30FzrXjuEm7SDeZmeM7M989906SlSxKYuuh9WJ2xrKyKGvrRjHHSq9nDcu-2HtnDj6a_qZ5u2W2B6b3z_T7p393TwcDs_v18uS15JLfx49rjo8uT97YtWJ7Wz-j7Ys6znRqk7aRf8mSpJ1FK9U1adRq6RSh4XrUKXfT_GkS0d5RJGK7K-CzO0thM3men4lTq6PbuqXj5ii-GWZhw5qzCRBsds2iqaimspo61ZTysOeHHFkCUnshybJk-UoSrTSq7hlm6twp4ZHREinuSCkOgCTkSFtM4iyM4ifhgm43YMOqrs5ff4T8K4uKtNfC9qquTlyNm2HafRwCcI7XLM64KKnjcJk2nPZfoUpXsLs3HbsYZrqVpN3y5KFtpef2eW___BuKvlkGQDPHh2bwfVw7f_nL_P40EbdzaL78RNtc1T73Lj4cjmsXf7aoycbjjjbN_v64drbXOzv4MRGH1tx-f13bybVCmmepXtNpR9-9V7nR0WmkYccw1VGXDd0btc1E9y2EaaUNzVKCBapmCREwjjEImPSwdFwm6yQL5gUYA8EcfPY4k1gql3FSBUrn1yzXZ3U-AVqi3khXdPKUdIIu8pnCRYJLJuhip84ErYVb6EGduRJ4IudRXpEE8KST4_nebfCK1zUdnsp98JlLF3KHOeQa8ILcPYzAEnDVwXfgKSwV4N0Cz4MKvEDdBq948dPhUdGEUEwRDneZgB-Ep3IAP6-m5Dx3EXgUrhSTBE14WBKevA1e_i80JZ7A8yc8SZjAC_LiqqK4kjMBEAlXXTSBh9pjUD7jlATwfCTlBgi-jkfD_OzMxoP_&enc=deflate
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '青岛市各区县常住人口（2020-2024年）',
+    left: 'center'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    data: ['2020年', '2021年', '2022年', '2023年', '2024年'],
+    top: 'bottom'
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '12%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01],
+    name: '万人'
+  },
+  yAxis: {
+    type: 'category',
+    data: [
+      '莱西市',
+      '平度市',
+      '胶州市',
+      '即墨区',
+      '城阳区',
+      '黄岛区',
+      '崂山区',
+      '李沧区',
+      '市北区',
+      '市南区'
+    ].reverse()
+  },
+  series: [
+    {
+      name: '2020年',
+      type: 'bar',
+      data: [71.97, 119.07, 99.25, 134.26, 111.59, 191.37, 50.29, 74.09, 110.08, 48.60].reverse()
+    },
+    {
+      name: '2021年',
+      type: 'bar',
+      data: [71.91, 118.78, 102.19, 136.18, 114.78, 196.42, 51.08, 75.25, 110.23, 48.85].reverse()
+    },
+    {
+      name: '2022年',
+      type: 'bar',
+      data: [71.79, 118.45, 103.36, 136.96, 116.92, 199.35, 51.72, 76.14, 110.55, 48.97].reverse()
+    },
+    {
+      name: '2023年',
+      type: 'bar',
+      data: [71.37, 117.76, 104.13, 136.74, 118.29, 200.78, 51.37, 77.22, 110.57, 48.92].reverse()
+    },
+    {
+      name: '2024年',
+      type: 'bar',
+      data: [71.10, 117.27, 104.99, 137.18, 120.12, 203.41, 52.11, 78.03, 110.86, 49.18].reverse()
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
